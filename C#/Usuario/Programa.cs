@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace clases
+namespace .NET.C_.Usuario
 {
-    //propriedades da classe
-    public class Materia
+    internal class Programa
     {
-        public string Nome;
     }
 }

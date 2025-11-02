@@ -1,6 +1,6 @@
 ﻿
 //saber onde aluno está
-using clases;
+using  Escola;
 
 //métodos construtores -> inicializar objetos
 //new -> palavra reservada usada para criar uma nova instância de uma classe 

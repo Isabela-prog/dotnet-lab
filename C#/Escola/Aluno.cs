@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Escola;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace clases
+namespace Escola
 {
     //internal -> modificador de acesso que limita acesso dentro do mesmo assembly (dentro da mesma biblioteca ou executável)
     //protected -> modificador de acesso que limita acesso dentro da mesma classe ou classes derivadas
