@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Escola;
+namespace Net.C_.Escola;
 
 //propriedades da classe
 public class Materia

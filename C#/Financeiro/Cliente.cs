@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NET.C_.Financeiro
+{
+    public class Cliente 
+    {
+        public string Codigo { get; private set; }
+        public string Nome { get; private set; }
+        public decimal Saldo { get; private set; }
+
+        public List<Movimentacao> Movimentacoes { get; set; }
+
+        //construtor para incializar a lista de movimentações
+        public Cliente()
+        {
+            Movimentacoes = new List<Movimentacao>();
+        }
+
+        public Cliente(string codigo, string nome) : this()
+        {
+            Codigo = codigo;
+            Nome = nome;
+        }
+
+        public void RealizarSaque(decimal valor)
+        {
+            if (Saldo > valor)
+            {
+                decimal valorMenosTaxa = DescontarTaxa(valor);
+                Saldo =- valor;
+                AdicionarMovimentacao("Saque", valorMenosTaxa);
+                Console.WriteLine($"Saque realizado com sucesso!. Saldo: {Saldo}");
+            }
+            else
+            {
+                throw new InvalidOperationException("Saldo insuficiente para realizar o saque.");
+            }
+            
+        }
+
+        public void RealizarDeposito(decimal valor)
+        {
+            if (valor >= 10)
+            {
+                decimal valorMenosTaxa = DescontarTaxa(valor);
+                Saldo += valorMenosTaxa;
+                AdicionarMovimentacao("Depósito", valorMenosTaxa);
+                Console.WriteLine($"Depósito realizado com sucesso!. Saldo: {Saldo}");
+            }
+            else
+            {
+                throw new InvalidOperationException("O valor mínimo para depósito é R$10,00.");
+            }
+        }
+
+        private void AdicionarMovimentacao(string tipo, decimal valor)
+        {
+            Movimentacoes.Add(new Movimentacao(tipo, DescontarTaxa(valor)));
+        }
+
+        public virtual decimal DescontarTaxa(decimal valor)
+        {
+            return valor;
+        }
+    }
+}
